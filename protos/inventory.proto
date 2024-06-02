@@ -1,0 +1,25 @@
+syntax = "proto3";
+
+option go_package="microsrvhttpinproto/inventoryservice";
+
+package srv;
+
+import "order.proto";
+
+
+
+message InventoryRequest{
+    int32 id =1;
+}
+
+message InventoryResponse{
+    int32 id =1;
+    OrderResponse order =2;
+    string item =3 ;
+    int32 stock =4;
+}
+
+
+service InventoryService{
+    rpc GetInventory(InventoryRequest) returns (InventoryResponse);
+}

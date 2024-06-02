@@ -1,0 +1,21 @@
+syntax ="proto3";
+
+option go_package= "microsrvhttpinproto/orderservice";
+
+package srv;
+
+import "user.proto";
+
+message OrderRequest{
+    int32 id =1;
+}
+message OrderResponse{
+    int32 id =1;
+    UserResponse user =2;
+    
+    string item =3;
+}
+
+service OrderService{
+    rpc GetOrder(OrderRequest)  returns(OrderResponse) ;
+}
